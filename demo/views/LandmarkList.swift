@@ -3,6 +3,7 @@ import SwiftUI
 
 struct LandmarkList: View {
     var landmark : Landmark
+    @State private var searchText: String = ""
     var body: some View {
         NavigationSplitView {
             List(landmarks) { landmark in
@@ -15,7 +16,7 @@ struct LandmarkList: View {
             .navigationTitle("Landmarks")
         } detail: {
             Text("Select a Landmark")
-        }
+        }.searchable(text: $searchText)
     }
 }
 
